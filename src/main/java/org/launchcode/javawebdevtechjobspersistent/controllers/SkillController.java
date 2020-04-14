@@ -18,6 +18,14 @@ public class SkillController {
     @Autowired
     private SkillRepository skillRepository;
 
+    // view all skills
+    @GetMapping
+    public String displayAllSkills(Model model) {
+        model.addAttribute("title", "All Skills");
+        model.addAttribute("skills", skillRepository.findAll());
+        return "skills/index";
+    }
+
     //display form to be filled
     @GetMapping("add")
     public String displayAddSkillForm(Model model){
@@ -30,6 +38,7 @@ public class SkillController {
     public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill,
                                       Errors errors, Model model){
         if (errors.hasErrors()){
+            model.addAttribute(new Skill());
         return "skills/add";
         }
         skillRepository.save(newSkill);
