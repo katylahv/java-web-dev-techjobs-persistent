@@ -3,17 +3,18 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
-    @NotNull(message = "select an employer")
+
+
+    //@NotNull(message = "select an employer")
     @ManyToOne
     private Employer employer;
 
-    @NotNull // cant figure out what constraint will work to not get an exception :(
+    //@NotNull // cant figure out what constraint will work to not get an error
     @ManyToMany
     private List<Skill> skills = new ArrayList<>();
 
