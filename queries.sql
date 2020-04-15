@@ -5,7 +5,8 @@ where TABLE_NAME = 'job' and TABLE_SCHEMA = 'techjobs';
 select name from techjobs.employer
 where location = 'St.Louis City';
 ## Part 3: Test it with SQL
-alter table job drop column employer;
+drop table job_skills;
+drop table job;
 ## Part 4: Test it with SQL
 SELECT name, description FROM skill
 WHERE skill.id
