@@ -9,11 +9,11 @@ import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
-
-    @NotNull
+    @NotNull(message = "select an employer")
     @ManyToOne
     private Employer employer;
 
+    @NotNull // cant figure out what constraint will work to not get an exception :(
     @ManyToMany
     private List<Skill> skills = new ArrayList<>();
 
